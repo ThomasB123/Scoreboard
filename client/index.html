@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <!--<script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.sound.min.js"></script>-->
+    <!--<script language="javascript" type="text/javascript" src="index.js"></script>-->
+    <!--<script language="javascript" type="text/javascript" src="timer.js"></script>-->
+
+    <title>WHC - Controls</title>
+</head>
+
+<body>
+    <header>
+        <nav id="nav-main" class="navbar fixed-top navbar-expand-lg navbar-dark">
+            <a class="navbar-brand">Score Board</a>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                    <div>
+                        <h1 id="period-controls"></h1>
+                        <form>
+                            <input type="radio" name="option" value="1st Quarter" onclick="section(this.value)"> 1st Quarter<br>
+                            <input type="radio" name="option" value="2nd Quarter" onclick="section(this.value)"> 2nd Quarter<br>
+                            <input type="radio" name="option" value="3rd Quarter" onclick="section(this.value)"> 3rd Quarter<br>
+                            <input type="radio" name="option" value="4th Quarter" onclick="section(this.value)"> 4th Quarter<br>
+                            <input type="radio" name="option" value="1st Half" onclick="section(this.value)"> 1st Half<br>
+                            <input type="radio" name="option" value="2nd Half" onclick="section(this.value)"> 2nd Half<br>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                    <h1 id="timer">______</h1>
+                    <div>
+                        <button onclick="time('play')">Play</button>
+                        <button onclick="time('pause')">Pause</button>
+                        <button onclick="time('reset')">Reset</button>
+                    </div>
+                    <div>
+                        <button onclick="setTime(2100)">35:00</button>
+                        <button onclick="setTime(1050)">17:30</button>
+                        <button onclick="setTime(900)">15:00</button>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                    <h1 id="temp-timer">40</h1>
+                    <button>Show</button>
+                    <button>Start</button>
+                    <button>Reset</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                    <div>
+                        <h1 id="home-team">Wakefield</h1>
+                    </div>
+                    <div>
+                        <h1 id="home-score-controls">0</h1>
+                    </div>
+                    <div>
+                        <button type="button" id="home-plus" onclick="home_plus()">
+                            <img src="https://cdn3.iconfinder.com/data/icons/line/36/add-512.png" alt="plus" width="25%">
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" id="home-minus" onclick="home_minus()">
+                            <img src="https://cdn3.iconfinder.com/data/icons/interface/100/minus_button_2-512.png" alt="minus" width="25%">
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                    <div>
+                        <h1 id="away-team">Other Team</h1>
+                    </div>
+                    <div>
+                        <h1 id="away-score-controls">0</h1>
+                    </div>
+                    <div>
+                        <button type="button" id="away-plus" class="button hollow circle" onclick="away_plus()">
+                            <img src="https://cdn3.iconfinder.com/data/icons/line/36/add-512.png" alt="plus" width="25%">
+                        </button>
+                    </div>
+                    <div>
+                        <button type="button" id="away-minus" class="qtyminus" onclick="away_minus()">
+                            <img src="https://cdn3.iconfinder.com/data/icons/interface/100/minus_button_2-512.png" alt="minus" width="25%">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center">
+                    <h3>Home team name here:</h3>
+                    <form>
+                        <div><input type="text" id="home-name"></div>
+                        <div><button onclick="home_name(event)">Submit</button></div>
+                    </form>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center ">
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-center ">
+                    <div>
+                        <h3>Away team name here:</h3>
+                        <form>
+                            <div><input type="text" id="away-name"></div>
+                            <div><button onclick="away_name(event)">Submit</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="index.js "></script>
+        <!--<script src="timer.js "></script>-->
+
+    </main>
+    <footer>
+        <div class="footer-content ">
+            <p class="text-center ">Wakefield Hockey Club</p>
+        </div>
+        <div class="scripts ">
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+        </div>
+    </footer>
+</body>
+
+</html>
