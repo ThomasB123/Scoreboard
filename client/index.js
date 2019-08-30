@@ -5,15 +5,10 @@ var startTime = 0;
 var timePassed = 0;
 var pauseWhen = 120;
 
-var go = false;
-var paused;
+// also need to keep track of time passed whilst paused to offset millis()
+var paused = 0; // paused keeps track of how long timer has been paused for
 
-/*function setTime(time) {
-    totalTime = time;
-    startTime = millis();
-    timePassed = floor((millis() - startTime) / 1000);
-    timer.innerHTML = convertSeconds(totalTime - timePassed);
-}*/
+var go = false;
 
 function convertSeconds(s) {
     var min = floor(s / 60);
@@ -24,7 +19,6 @@ function convertSeconds(s) {
 function setup() {
     noCanvas();
     startTime = millis();
-    //paused = millis();
     timer.innerHTML = convertSeconds(totalTime - timePassed);
 }
 var interval = setInterval(timeIt, 1000);
@@ -32,26 +26,25 @@ var interval = setInterval(timeIt, 1000);
 function timeIt() {
     if (go) {
         timePassed = floor((millis() - startTime) / 1000);
-        timer.innerHTML = convertSeconds(totalTime - timePassed);
+        timer.innerHTML = convertSeconds(totalTime - timePassed + paused);
         if (timePassed + pauseWhen == totalTime) {
             clearInterval(interval);
         }
+    } else {
+        paused++; // add 1 to paused every second whilst paused to offset millis()
     }
 }
 
 function play() {
     go = true;
-    startTime = millis();
-    //var interval = setInterval(timeIt, 1000);
-    //startTime += timePassed;
 }
 
 function pause() {
     go = false;
-    //paused = millis();
 }
 
 function reset() {
+    paused = 0;
     startTime = millis();
     timePassed = floor((millis() - startTime) / 1000);
     timer.innerHTML = convertSeconds(totalTime - timePassed);
@@ -85,6 +78,7 @@ async function time(event) {
 }
 async function setTime(time) {
     try {
+        paused = 0;
         totalTime = time;
         startTime = millis();
         timePassed = floor((millis() - startTime) / 1000);

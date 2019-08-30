@@ -5,8 +5,8 @@ var startTime = 0;
 var timePassed = 0;
 var pauseWhen = 120;
 
+var paused = 0;
 var go = false;
-var paused;
 
 function setTime(time) {
     totalTime = time;
@@ -24,7 +24,6 @@ function convertSeconds(s) {
 function setup() {
     noCanvas();
     startTime = millis();
-    //paused = millis();
     timer.innerHTML = convertSeconds(totalTime - timePassed);
 }
 var interval = setInterval(timeIt, 1000);
@@ -32,26 +31,25 @@ var interval = setInterval(timeIt, 1000);
 function timeIt() {
     if (go) {
         timePassed = floor((millis() - startTime) / 1000);
-        timer.innerHTML = convertSeconds(totalTime - timePassed);
+        timer.innerHTML = convertSeconds(totalTime - timePassed + paused);
         if (timePassed + pauseWhen == totalTime) {
             clearInterval(interval);
         }
+    } else {
+        paused++;
     }
 }
 
 function play() {
     go = true;
-    startTime = millis();
-    //var interval = setInterval(timeIt, 1000);
-    //startTime += timePassed;
 }
 
 function pause() {
     go = false;
-    //paused = millis();
 }
 
 function reset() {
+    paused = 0;
     startTime = millis();
     timePassed = floor((millis() - startTime) / 1000);
     timer.innerHTML = convertSeconds(totalTime - timePassed);
