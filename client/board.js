@@ -1,3 +1,17 @@
+var address = 'http://192.168.1.3:8080/';
+//var address = 'http://192.168.168.171:8080/';
+// var address = 'http://127.0.0.1:8080/';
+
+/*
+Everything between the comment lines is the same in both board.js and index.js
+
+board.js has all the same functions as index.js does,
+when board.js makes GET requests to the server app.js
+it just gets which function to run that has also been run by index.js
+on the controls side.
+*/
+
+//////////////////////////////////////////////////////////////////////
 // All times in seconds
 var timer = document.getElementById('timer');
 var totalTime = 2100;
@@ -26,7 +40,7 @@ function setup() {
     startTime = millis();
     timer.innerHTML = convertSeconds(totalTime - timePassed);
 }
-var interval = setInterval(timeIt, 1000);
+var interval = setInterval(timeIt, 1000); // this decides how often we are checking the server for any updates (in milliseconds)
 
 function timeIt() {
     if (go) {
@@ -54,9 +68,7 @@ function reset() {
     timePassed = floor((millis() - startTime) / 1000);
     timer.innerHTML = convertSeconds(totalTime - timePassed);
 }
-
-var address = 'http://192.168.168.171:8080/';
-// var address = 'http://127.0.0.1:8080/';
+//////////////////////////////////////////////////////////////////////
 
 var homeScore = 0;
 var awayScore = 0;

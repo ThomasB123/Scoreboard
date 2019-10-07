@@ -1,3 +1,8 @@
+var address = 'http://192.168.1.3:8080/';
+//var address = 'http://10.248.123.77:8080/';
+//var address = 'http://192.168.168.171:8080/';
+// var address = http://127.0.0.1:8080/;
+
 // All times in seconds
 var timer = document.getElementById('timer');
 var totalTime = 2100;
@@ -7,7 +12,6 @@ var pauseWhen = 120;
 
 // also need to keep track of time passed whilst paused to offset millis()
 var paused = 0; // paused keeps track of how long timer has been paused for
-
 var go = false;
 
 function convertSeconds(s) {
@@ -49,9 +53,6 @@ function reset() {
     timePassed = floor((millis() - startTime) / 1000);
     timer.innerHTML = convertSeconds(totalTime - timePassed);
 }
-
-var address = 'http://192.168.168.171:8080/';
-// var address = http://127.0.0.1:8080/;
 
 var homeScore = 0;
 var awayScore = 0;

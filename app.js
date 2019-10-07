@@ -37,22 +37,6 @@ app.post("/length", function(req, resp) {
     }
 });
 
-//sending instructions but letting board count for itself
-/*app.post("/timer", function(req, resp) {
-    if (req.query != {}) {
-        let query = req.query.go;
-        if (query == 'true') {
-            go = true;
-        } else if (query == 'false') {
-            go = false;
-        } else {
-            console.log("something is wrong here");
-        }
-    } else {
-        resp.status(400);
-    }
-});*/
-
 app.post("/homescore", function(req, resp) {
     if (req.query != {}) {
         homeScore = req.query.home;
