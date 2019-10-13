@@ -1,6 +1,6 @@
-var address = 'http://192.168.1.3:8080/';
-//var address = 'http://192.168.168.171:8080/';
-// var address = 'http://127.0.0.1:8080/';
+var address = '192.168.1.3';
+//var address = '192.168.168.171';
+// var address = '127.0.0.1';
 
 /*
 Everything between the comment lines is the same in both board.js and index.js
@@ -80,7 +80,7 @@ var period = "VS";
 
 async function time() {
     try {
-        let response = await fetch(address + 'time', {
+        let response = await fetch('http://' + address + ':8080/time', {
             method: 'GET'
         });
         let text = await response.text();
@@ -101,7 +101,7 @@ async function time() {
 }
 async function length(time) {
     try {
-        let response = await fetch(address + 'length', {
+        let response = await fetch('http://' + address + ':8080/length', {
             method: 'GET'
         });
         let text = await response.text();
@@ -116,7 +116,7 @@ async function length(time) {
 
 async function getHomeScore() {
     try {
-        let response = await fetch(address + 'home', {
+        let response = await fetch('http://' + address + ':8080/home', {
             method: 'GET'
         });
         let text = await response.text();
@@ -128,7 +128,7 @@ async function getHomeScore() {
 
 async function getAwayScore() {
     try {
-        let response = await fetch(address + 'away', {
+        let response = await fetch('http://' + address + ':8080/away', {
             method: 'GET'
         });
         let text = await response.text();
@@ -140,7 +140,7 @@ async function getAwayScore() {
 
 async function getHomeName() {
     try {
-        let response = await fetch(address + 'homename', {
+        let response = await fetch('http://' + address + ':8080/homename', {
             method: 'GET'
         });
         let text = await response.text();
@@ -152,7 +152,7 @@ async function getHomeName() {
 
 async function getAwayName() {
     try {
-        let response = await fetch(address + 'awayname', {
+        let response = await fetch('http://' + address + ':8080/awayname', {
             method: 'GET'
         });
         let text = await response.text();
@@ -164,7 +164,7 @@ async function getAwayName() {
 
 async function getPeriod() {
     try {
-        let response = await fetch(address + 'period', {
+        let response = await fetch('http://' + address + ':8080/period', {
             method: 'GET'
         });
         let text = await response.text();
