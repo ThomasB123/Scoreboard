@@ -13,15 +13,9 @@ The server is run using node.
 
 2.) Open a terminal and navigate to the folder
 
-3.) ``` bash
-    npm install
-    ```
-to install all the necessary dependencies
+3.) ``` npm install ``` to install all the necessary dependencies
 
-4.) ``` bash
-    npm start
-    ```
-to start the server
+4.) ``` npm start ``` to start the server
 
 5.) Go to a browser and enter your device's IP address plus ':8080' (e.g. '192.168.1.x:8080')
 
