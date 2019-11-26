@@ -9,18 +9,24 @@ The server is run using node.
 
 ## How to run
 
-To run this scoreboard, first download this folder and uncompress it, then open a terminal and
-``` bash
-cd
-```
-into this folder.
-Run
-``` bash
-npm install
-```
-to install all of the necessary dependencies, then run
-``` bash
-npm start
-```
-to start the server. Then go to a browser and type in your device's IP address plus ':8080' (because the server runs on port 8080).
-This will give you the controls page, to view the display page, open a new tab on any device on the same network and type the same address except with '/board.html' at the end.
+1.) Download this folder and uncompress it
+
+2.) Open a terminal and navigate to the folder
+
+3.) ``` bash
+    npm install
+    ```
+to install all the necessary dependencies
+
+4.) ``` bash
+    npm start
+    ```
+to start the server
+
+5.) Go to a browser and enter your device's IP address plus ':8080' (e.g. '192.168.1.x:8080')
+
+6.) This will give you the controls page
+
+7.) To view the display page, simply add '/board.html' to the address shown above (e.g. '192.168.1.x:8080/board.html')
+
+8.) That's it!
