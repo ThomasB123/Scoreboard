@@ -17,10 +17,10 @@ The server is run using node.
 
 4.) ``` npm start ``` to start the server
 
-5.) Go to a browser and enter your device's IP address plus ':8080' (e.g. '192.168.1.x:8080')
+5.) Go to a browser and enter your device's IP address plus ':8080' (e.g. '192.168.1.1:8080')
 
 6.) This will give you the controls page
 
-7.) To view the display page, simply add '/board.html' to the address shown above (e.g. '192.168.1.x:8080/board.html')
+7.) To view the display page, simply add '/board.html' to the address shown above (e.g. '192.168.1.1:8080/board.html')
 
 8.) That's it!
